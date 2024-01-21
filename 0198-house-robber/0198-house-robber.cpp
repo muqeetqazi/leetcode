@@ -1,20 +1,19 @@
 class Solution {
 public:
     int rob(vector<int>& nums) {
-         int even=0;
-         int old=0;
-        
-        for(int i=0;i<nums.size();i=i+2)
-        {
-            if(i%2==0)
-            {
-                even=max(even+nums[1],old);
-            }
-            else{
-                old=max(old+nums[i],even);
-            }
+        int evenRob = 0;  // Total amount when robbing houses at even indices
+        int oddRob = 0;   // Total amount when robbing houses at odd indices
 
+        // Iterate through the houses
+        for (int i = 0; i < nums.size(); ++i) {
+            if (i % 2 == 0) {
+                evenRob = max(evenRob + nums[i], oddRob);
+            } else {
+                oddRob = max(oddRob + nums[i], evenRob);
+            }
         }
-        return max(rob,newrob);
+
+        // Return the maximum of the two cases
+        return max(evenRob, oddRob);
     }
 };
