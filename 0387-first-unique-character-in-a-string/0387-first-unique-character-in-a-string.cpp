@@ -10,7 +10,7 @@ public:
             {
                 if(i!=j&&s[i]==s[j])
                 {
-                    flag=1;
+                    flag++;
                     break;
                 }
             }
