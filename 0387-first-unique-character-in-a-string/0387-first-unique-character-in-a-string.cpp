@@ -1,27 +1,14 @@
 class Solution {
 public:
     int firstUniqChar(string s) {
-        unordered_map <char,int> st;
-        int i,n;
-        n = s.length();
-        for(i=0;i<n;i++)
-        {
-            if(st.find(s[i])!= st.end())
-            {
-                st[s[i]]++;
-            }
-            else
-            {
-                st[s[i]] = 1;
-            }
-        }
-        for(i=0;i<n;i++)
-        {
-            if(st[s[i]] == 1)
-            {
+        int size = s.size();
+        for (int i = 0; i < size; ++i) {
+            int first_pos = s.find(s[i]);
+            int last_pos = s.find_last_of(s[i]);
+            if (first_pos == last_pos) {
                 return i;
             }
-        }
+        } 
         return -1;
     }
 };
