@@ -1,5 +1,3 @@
-import gc
-
 # Definition for singly-linked list.
 # class ListNode(object):
 #     def __init__(self, val=0, next=None):
@@ -23,5 +21,4 @@ class Solution(object):
         current.next = list1 if list1 else list2
 
         # Force garbage collection (not really needed in this problem)
-        gc.collect()
         return dummy.next
